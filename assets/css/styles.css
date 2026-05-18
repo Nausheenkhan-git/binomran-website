@@ -408,13 +408,26 @@ select {
 }
 
 .quote-help {
-    margin-top: 28px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(15, 93, 255, 0.16);
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
 }
 
 .quote-help h6 {
     margin-bottom: 18px;
+}
+
+.quote-help-panel {
+    background: #ffffff;
+    border-radius: 24px;
+    border: 2px solid #0f5dff;
+    padding: 32px;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.quote-help-panel .quote-help {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .quote-help a {
