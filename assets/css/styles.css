@@ -156,6 +156,10 @@ select {
     background-image: linear-gradient(180deg, rgba(87, 108, 199, 0), rgba(87, 104, 199, 0.726)), url('../images/about-hero.png');
 }
 
+.hero-section.contact-hero {
+    background-image: linear-gradient(180deg, rgba(87, 108, 199, 0), rgba(87, 104, 199, 0.726)), url('../images/contact_hero.png');
+}
+
 .about-hero .hero-title {
     max-width: 720px;
 }
@@ -165,7 +169,8 @@ select {
 .milestones,
 .manager-message,
 .partners-section,
-.about-cta {
+.about-cta,
+.contact-section {
     padding: 100px 0;
 }
 
@@ -183,7 +188,93 @@ select {
     margin-bottom: 24px;
 }
 
-.overview-paragraph {
+.contact-form-card {
+    background: #ffffff;
+    border: 2px solid #0f5dff;
+    border-radius: 28px;
+    padding: 36px 32px;
+    max-width: 930px;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.contact-form-card .form-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #0f305c;
+}
+
+.contact-form-card .form-control {
+    border: 1px solid #c9dcff;
+    border-radius: 14px;
+    background: #f7fbff;
+    padding: 18px 18px;
+    height: 55px;
+    box-shadow: none;
+}
+
+.contact-form-card .form-control:focus {
+    box-shadow: none;
+    border-color: #0f5dff;
+}
+
+.contact-form-card textarea.form-control {
+    min-height: 160px;
+    resize: vertical;
+    padding-top: 18px;
+}
+
+.contact-panel {
+    background: #ffffff;
+    border-radius: 24px;
+    border: 2px solid #0f5dff;
+    padding: 32px;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.contact-info-card {
+    min-height: 100%;
+}
+
+.contact-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.contact-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    background: #eff5ff;
+    display: grid;
+    place-items: center;
+    color: #0f5dff;
+    flex-shrink: 0;
+}
+
+.contact-item h5 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.contact-item p,
+.contact-item a {
+    color: #4b5c7a;
+    margin-bottom: 4px;
+}
+
+.contact-item a {
+    font-weight: 600;
+}
+
+.contact-map-card iframe {
+    width: 100%;
+    min-height: 400px;
+    border: none;
+    border-radius: 20px;
+}
+
+.company-image {
     color: #455173;
     line-height: 1.85;
     margin-bottom: 20px;
