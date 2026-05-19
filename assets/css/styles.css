@@ -142,7 +142,8 @@ select {
 .hero-section.contact-hero,
 .hero-section.quote-hero,
 .hero-section.service-hero,
-.hero-section.cyber-hero {
+.hero-section.cyber-hero,
+.hero-section.ict-hero {
     position: relative;
     min-height: 820px;
     background-size: cover;
@@ -175,7 +176,9 @@ select {
 .hero-section.cyber-hero {
     background-image: linear-gradient(180deg, rgba(10, 20, 56, 0.12), rgba(10, 20, 56, 0.84)), url('../images/cyber_hero.png');
 }
-
+.hero-section.ict-hero {
+    background-image: linear-gradient(180deg, rgba(10, 20, 56, 0.12), rgba(10, 20, 56, 0.84)), url('../images/ICT_hero.png');
+}
 .about-hero .hero-title,
 .service-hero .hero-title,
 .cyber-hero .hero-title {
