@@ -78,6 +78,7 @@
             </div>
 
             <div class="row g-4 mt-5">
+                <!-- Article 1 - FIFA World Cup -->
                 <div class="col-12 news-item" data-category="case-study">
                     <div class="news-card">
                         <div class="row g-0">
@@ -90,13 +91,14 @@
                                 <div class="news-content">
                                     <h5>FIFA World Cup - Network Cabling Solutions</h5>
                                     <p>ICT Division of Bin Omran Trading & Telecommunication successfully completed the Fiber Optic Cabling for Technology innovation of all the stadiums and Passive Network Cabling for the 2022 World Cup</p>
-                                    <a href="/news.html">Read more ></a>
+                                    <a href="#" class="read-more-link" data-id="1" data-type="case-study">Read more ></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Article 2 - Corning Agreement -->
                 <div class="col-12 news-item" data-category="case-study">
                     <div class="news-card">
                         <div class="row g-0">
@@ -109,13 +111,14 @@
                                 <div class="news-content">
                                     <h5>Bin Omran signed agreement with Corning Optical Communications</h5>
                                     <p>Bin Omran had signed Distributorship agreement with Corning Optical Communications, and Now Binomran is the Authorized distributor of Corning Products in Qatar</p>
-                                    <a href="/news.html">Read more ></a>
+                                    <a href="#" class="read-more-link" data-id="2" data-type="case-study">Read more ></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Article 3 - Solar Project -->
                 <div class="col-12 news-item" data-category="case-study">
                     <div class="news-card">
                         <div class="row g-0">
@@ -127,10 +130,8 @@
                             <div class="col-md-7">
                                 <div class="news-content">
                                     <h5>Qatar Foundation awarded Bin Omran the new solar project</h5>
-                                    <p>Qatar Foundation awarded Bin Omran the new solar project “100kW Micro Grid Pilot Project” at QSTP Solar 
-Testing Facility for QEERI (Qatar Environment and Energy 
-Research Institute) on 3rd Oct. 2018</p>
-                                    <a href="#">Read more ></a>
+                                    <p>Qatar Foundation awarded Bin Omran the new solar project "100kW Micro Grid Pilot Project" at QSTP Solar Testing Facility for QEERI (Qatar Environment and Energy Research Institute) on 3rd Oct. 2018</p>
+                                    <a href="#" class="read-more-link" data-id="3" data-type="case-study">Read more ></a>
                                 </div>
                             </div>
                         </div>
@@ -139,9 +140,9 @@ Research Institute) on 3rd Oct. 2018</p>
             </div>
         </div>
         <div class="text-center mt-5">
-                <button class="view-all-btn" type="button">Load More Articles</button>
-            </div>
-            <br>
+            <button class="view-all-btn" type="button" id="loadMoreBtn">Load More Articles</button>
+        </div>
+        <br>
     </section>
 
     <footer>
@@ -223,24 +224,103 @@ Research Institute) on 3rd Oct. 2018</p>
             updateNavbar();
             window.addEventListener('scroll', updateNavbar);
 
-            // News filter functionality
+            // Get all filter buttons and news items
             const filterButtons = document.querySelectorAll('.project-filter-buttons .filter-btn');
             const newsItems = document.querySelectorAll('.news-item');
+            
+            // Get all read more links
+            const readMoreLinks = document.querySelectorAll('.read-more-link');
+
+            // Function to update button text and href based on active filter
+            function updateReadMoreButtons() {
+                const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+                
+                readMoreLinks.forEach(link => {
+                    const id = link.getAttribute('data-id');
+                    const type = link.getAttribute('data-type');
+                    
+                    if (activeFilter === 'case-study') {
+                        // When Case Study filter is active
+                        link.innerHTML = 'Read Case Study >';
+                        link.href = `case-study-detail.html?id=${id}`;
+                    } else {
+                        // When All filter is active
+                        link.innerHTML = 'Read more >';
+                        link.href = `news-detail.html?id=${id}`;
+                    }
+                });
+            }
+
+            // Filter functionality
+            const getEffectiveFilter = (filter) => {
+                return filter === 'case-study' ? 'all' : filter;
+            };
 
             const setFilter = (filter) => {
+                const effectiveFilter = getEffectiveFilter(filter);
                 newsItems.forEach((item) => {
                     const category = item.dataset.category;
-                    item.style.display = filter === 'all' || category === filter ? '' : 'none';
+                    item.style.display = effectiveFilter === 'all' || category === effectiveFilter ? '' : 'none';
                 });
+                // Update button text after filter changes
+                updateReadMoreButtons();
             };
+
+            // Load More functionality
+            let visibleItems = 3;
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const allNewsItems = Array.from(newsItems);
+            
+            const updateVisibility = () => {
+                const currentFilter = getEffectiveFilter(document.querySelector('.filter-btn.active').dataset.filter);
+                allNewsItems.forEach((item, index) => {
+                    const categoryMatch = currentFilter === 'all' || item.dataset.category === currentFilter;
+                    if (index < visibleItems && categoryMatch) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                if (loadMoreBtn) {
+                    const visibleCount = allNewsItems.filter((item, index) => {
+                        const categoryMatch = currentFilter === 'all' || item.dataset.category === currentFilter;
+                        return index < visibleItems && categoryMatch;
+                    }).length;
+                    
+                    const totalMatching = allNewsItems.filter((item) => {
+                        return currentFilter === 'all' || item.dataset.category === currentFilter;
+                    }).length;
+
+                    if (visibleCount >= totalMatching) {
+                        loadMoreBtn.style.display = 'none';
+                    } else {
+                        loadMoreBtn.style.display = 'inline-flex';
+                    }
+                }
+            };
+            
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    visibleItems += 3;
+                    updateVisibility();
+                });
+            }
 
             filterButtons.forEach((button) => {
                 button.addEventListener('click', () => {
                     filterButtons.forEach((btn) => btn.classList.remove('active'));
                     button.classList.add('active');
+                    visibleItems = 3;
                     setFilter(button.dataset.filter);
+                    updateReadMoreButtons();
+                    updateVisibility();
                 });
             });
+
+            // Initial setup
+            updateReadMoreButtons();
+            updateVisibility();
         });
     </script>
 </body>
