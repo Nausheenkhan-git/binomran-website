@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insights</title>
+    <title>News Detail</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+    <nav class="navbar navbar-expand-lg custom-navbar fixed-top navbar-light-page">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/index.html">
                 <img src="assets/images/logo.png" alt="Bin Omran logo">
@@ -57,91 +57,39 @@
         </div>
     </nav>
 
-    <section class="hero-section news-hero" id="insights-hero">
-        <div class="hero-overlay"></div>
+    <section class="news-detail-section">
         <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-xl-8 col-lg-9 text-center">
-                    <p class="hero-label">News & Updates</p>
-                    <h1 class="hero-title">Latest from Bin Omran</h1>
-                    <p class="hero-text">Stay informed on our latest projects, partnerships and technology innovations driving Qatar's digital transformation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="insights-section">
-        <div class="container">
-            <div class="project-filter-buttons">
-                <button class="filter-btn active" type="button" data-filter="all">All</button>
-                <button class="filter-btn" type="button" data-filter="case-study">Case Study</button>
-            </div>
-
-            <div class="row g-4 mt-5">
-                <div class="col-12 news-item" data-category="case-study">
-                    <div class="news-card">
-                        <div class="row g-0">
-                            <div class="col-md-5">
-                                <div class="news-image">
-                                    <img src="assets/images/f1.jpg" alt="FIFA World Cup - Network Cabling Solutions">
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="news-content">
-                                    <h5>FIFA World Cup - Network Cabling Solutions</h5>
-                                    <p>ICT Division of Bin Omran Trading & Telecommunication successfully completed the Fiber Optic Cabling for Technology innovation of all the stadiums and Passive Network Cabling for the 2022 World Cup</p>
-                                    <a href="/news.html">Read more ></a>
-                                </div>
-                            </div>
-                        </div>
+            <div class="row gy-5">
+                <div class="col-lg-8">
+                    <a href="/insights.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to News</a>
+                    <div class="news-detail-header">
+                        <span class="meta-year">2022</span>
+                        <h1>FIFA World Cup - Network Cabling Solutions</h1>
                     </div>
-                </div>
-
-                <div class="col-12 news-item" data-category="case-study">
-                    <div class="news-card">
-                        <div class="row g-0">
-                            <div class="col-md-5">
-                                <div class="news-image">
-                                    <img src="assets/images/f2.jpg" alt="Bin Omran signed agreement with Corning Optical Communications">
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="news-content">
-                                    <h5>Bin Omran signed agreement with Corning Optical Communications</h5>
-                                    <p>Bin Omran had signed Distributorship agreement with Corning Optical Communications, and Now Binomran is the Authorized distributor of Corning Products in Qatar</p>
-                                    <a href="/news.html">Read more ></a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="news-detail-image">
+                        <img src="assets/images/f1.jpg" alt="FIFA World Cup - Network Cabling Solutions">
                     </div>
+                    <p>ICT Division of Bin Omran Trading & Telecommunication successfully completed the Fiber Optic Cabling for Technology Innovation across all FIFA World Cup stadiums and Passive Network Cabling for the 2022 tournament infrastructure.</p>
+                    <p>Bin Omran Trading & Telecommunication W.L.L. proudly announces the successful completion of Fiber Optic Cabling for Technology Innovation across all FIFA World Cup stadiums and Passive Network Cabling for the 2022 tournament infrastructure. This milestone project was a cornerstone in delivering seamless, high-speed connectivity and robust digital infrastructure to one of the world’s most technologically advanced sporting events. By deploying cutting-edge fiber optic networks and passive cabling systems, Bin Omran ensured that every stadium was equipped to handle the massive data demands of global broadcasting, security, and fan engagement.</p>
+                    <h4>Key Highlights:</h4>
+                    <ul class="news-detail-list">
+                        <li>Fiber Optic Backbone: enabling ultra-fast, reliable communication channels across all venues.</li>
+                        <li>Passive Network Cabling: supporting mission-critical systems such as CCTV, access control, and live broadcast feeds.</li>
+                        <li>Global Impact: contributing to Qatar’s reputation for hosting the most connected and resilient sporting event infrastructure in history.</li>
+                        <li>Operational Reliability: delivering a secure and scalable cabling solution for both competition and legacy use.</li>
+                    </ul>
                 </div>
-
-                <div class="col-12 news-item" data-category="case-study">
-                    <div class="news-card">
-                        <div class="row g-0">
-                            <div class="col-md-5">
-                                <div class="news-image">
-                                    <img src="assets/images/news1.png" alt="Qatar Foundation awarded Bin Omran the new solar project">
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="news-content">
-                                    <h5>Qatar Foundation awarded Bin Omran the new solar project</h5>
-                                    <p>Qatar Foundation awarded Bin Omran the new solar project “100kW Micro Grid Pilot Project” at QSTP Solar 
-Testing Facility for QEERI (Qatar Environment and Energy 
-Research Institute) on 3rd Oct. 2018</p>
-                                    <a href="#">Read more ></a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-4">
+                    <div class="category-box">
+                        <h5>Category</h5>
+                        <ul>
+                            <li><a href="/insights.html">All</a></li>
+                            <li><a href="/insights.html">Case study</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="text-center mt-5">
-                <button class="view-all-btn" type="button">Load More Articles</button>
-            </div>
-            <br>
     </section>
 
     <footer>
@@ -201,7 +149,6 @@ Research Institute) on 3rd Oct. 2018</p>
         document.addEventListener('DOMContentLoaded', function () {
             const navbar = document.querySelector('.custom-navbar');
             const animatedElements = document.querySelectorAll('.service-card, .why-card, .project-card, .stat-box, .client-logo, .news-card, .cta-box, .hero-animation, .section-header');
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -209,9 +156,7 @@ Research Institute) on 3rd Oct. 2018</p>
                     }
                 });
             }, { threshold: 0.15 });
-
             animatedElements.forEach((el) => observer.observe(el));
-
             const updateNavbar = () => {
                 if (window.scrollY > 20) {
                     navbar.classList.add('scrolled');
@@ -219,28 +164,8 @@ Research Institute) on 3rd Oct. 2018</p>
                     navbar.classList.remove('scrolled');
                 }
             };
-
             updateNavbar();
             window.addEventListener('scroll', updateNavbar);
-
-            // News filter functionality
-            const filterButtons = document.querySelectorAll('.project-filter-buttons .filter-btn');
-            const newsItems = document.querySelectorAll('.news-item');
-
-            const setFilter = (filter) => {
-                newsItems.forEach((item) => {
-                    const category = item.dataset.category;
-                    item.style.display = filter === 'all' || category === filter ? '' : 'none';
-                });
-            };
-
-            filterButtons.forEach((button) => {
-                button.addEventListener('click', () => {
-                    filterButtons.forEach((btn) => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    setFilter(button.dataset.filter);
-                });
-            });
         });
     </script>
 </body>
