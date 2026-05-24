@@ -13,11 +13,144 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        /* FORCE FIX - Images side by side */
+        .case-study-images {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            gap: 24px !important;
+            justify-content: space-between !important;
+        }
+        
+        .case-study-images .image-item {
+            flex: 1 !important;
+            min-width: 250px !important;
+        }
+        
+        .case-study-image-card {
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .case-study-image-card:hover {
+            transform: translateY(-6px);
+        }
+        
+        .case-study-image-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .case-study-image-card .image-caption {
+            padding: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #111827;
+            text-align: center;
+        }
+        
+        /* Key features grid - 3 columns horizontal */
+        .key-features-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 24px !important;
+            margin-top: 40px !important;
+        }
+        
+        /* Outcomes list - 3 columns horizontal */
+        .outcomes-list {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 24px !important;
+            margin-top: 20px !important;
+        }
+        
+        /* Case study outcome grid - 3 columns */
+        .case-study-outcome-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 24px !important;
+        }
+        
+        .feature-item {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid rgba(15, 93, 255, 0.15);
+            padding: 32px 28px;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.06);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f5dff, #5a8dff);
+            border-radius: 20px;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+        
+        .outcome-item {
+            background: #ffffff;
+            border: 1px solid rgba(15, 93, 255, 0.12);
+            border-radius: 24px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .outcome-item i {
+            color: #0f5dff;
+            font-size: 1.5rem;
+        }
+        
+        /* Mobile responsive - stack on small screens */
+        @media (max-width: 768px) {
+            .case-study-images {
+                flex-direction: column !important;
+            }
+            .key-features-grid,
+            .outcomes-list,
+            .case-study-outcome-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        
+        /* Fix for any Bootstrap overrides */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .col-md-6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+        
+        @media (max-width: 768px) {
+            .col-md-6 {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg custom-navbar fixed-top navbar-light-page">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="/index.html">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="assets/images/logo.png" alt="Bin Omran logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -27,32 +160,32 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav mx-auto text-center text-lg-start">
                     <li class="nav-item">
-                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/services.html" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <a class="nav-link dropdown-toggle" href="services.html" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="/cyber.html">Cybersecurity & Digital Transformation</a></li>
-                            <li><a class="dropdown-item" href="/ict.html">ICT Solutions</a></li>
-                            <li><a class="dropdown-item" href="/telecom.html">Telecom Infrastructure</a></li>
-                            <li><a class="dropdown-item" href="/power.html">Power & Renewable Energy</a></li>
-                            <li><a class="dropdown-item" href="/carrier.html">Carrier & Telecommunications</a></li>
+                            <li><a class="dropdown-item" href="cyber.html">Cybersecurity & Digital Transformation</a></li>
+                            <li><a class="dropdown-item" href="ict.html">ICT Solutions</a></li>
+                            <li><a class="dropdown-item" href="telecom.html">Telecom Infrastructure</a></li>
+                            <li><a class="dropdown-item" href="power.html">Power & Renewable Energy</a></li>
+                            <li><a class="dropdown-item" href="carrier.html">Carrier & Telecommunications</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about.html">About us</a>
+                        <a class="nav-link" href="about.html">About us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/projects.html">Projects</a>
+                        <a class="nav-link" href="projects.html">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/insights.html">Insights</a>
+                        <a class="nav-link" href="insights.html">Insights</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact.html">Contact</a>
+                        <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                 </ul>
-                <a href="/quote.html" class="quote-btn">Get a Quote</a>
+                <a href="quote.html" class="quote-btn">Get a Quote</a>
             </div>
         </div>
     </nav>
@@ -83,14 +216,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
-                    <div class="row case-study-images g-4 mb-5">
-                        <div class="col-md-6">
+                    <!-- Case Study Images - FORCED SIDE BY SIDE using flexbox -->
+                    <div class="case-study-images">
+                        <div class="image-item">
                             <div class="case-study-image-card">
                                 <img src="assets/images/lusail.png" alt="Lusail stadium">
                                 <div class="image-caption">Lusail stadium</div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="image-item">
                             <div class="case-study-image-card">
                                 <img src="assets/images/fiber.png" alt="Fiber optic installation">
                                 <div class="image-caption">Fiber optic installation</div>
@@ -104,7 +238,7 @@
                         <p>Bin Omran T&T implemented state-of-the-art ICT infrastructure for the 2022 FIFA World Cup venues, ensuring high-speed and reliable connectivity.</p>
                     </div>
 
-                    <!-- Key Features Grid -->
+                    <!-- Key Features Grid - 3 columns -->
                     <div class="key-features-grid" id="key-features">
                         <div class="feature-item">
                             <div class="feature-icon">
@@ -132,26 +266,22 @@
                     <!-- Key Outcomes -->
                     <div class="key-outcomes" id="key-outcomes">
                         <h3>Key Outcomes:</h3>
-                        <div class="row case-study-outcome-grid g-4 mb-5">
-                            <div class="col-md-6">
-                                <div class="outcome-image-card">
-                                    <img src="assets/images/news1.png" alt="Seamless connectivity">
-                                    <div class="outcome-caption">Seamless connectivity</div>
-                                </div>
+                        <!-- Outcome Images - 3 columns -->
+                        <div class="case-study-outcome-grid">
+                            <div class="outcome-image-card">
+                                <img src="assets/images/news1.png" alt="Seamless connectivity">
+                                <div class="outcome-caption">Seamless connectivity</div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="outcome-image-card">
-                                    <img src="assets/images/f2.jpg" alt="Advanced ICT systems">
-                                    <div class="outcome-caption">Advanced ICT systems</div>
-                                </div>
+                            <div class="outcome-image-card">
+                                <img src="assets/images/f2.jpg" alt="Advanced ICT systems">
+                                <div class="outcome-caption">Advanced ICT systems</div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="outcome-image-card">
-                                    <img src="assets/images/f1.jpg" alt="World class event">
-                                    <div class="outcome-caption">World class event</div>
-                                </div>
+                            <div class="outcome-image-card">
+                                <img src="assets/images/f1.jpg" alt="World class event">
+                                <div class="outcome-caption">World class event</div>
                             </div>
                         </div>
+                        <!-- Outcomes List -->
                         <div class="outcomes-list">
                             <div class="outcome-item">
                                 <i class="fa-solid fa-check-circle"></i>
@@ -181,7 +311,7 @@
         </div>
     </section>
 
-   <footer>
+    <footer>
         <div class="container">
             <div class="row gy-5">
                 <div class="col-lg-2">
@@ -195,29 +325,29 @@
                 <div class="col-lg-2">
                     <h5>Quick Links</h5>
                     <ul>
-                        <a href="/index.html"><li>Home</li></a>
-                        <a href="/about.html"><li>About us</li></a>
-                        <a href="/projects.html"><li>Projects</li></a>
-                        <a href="/insights.html"><li>News</li></a>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="insights.html">News</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
-                    <a href="/services.html"><h5>Services</h5></a>
+                    <h5>Services</h5>
                     <ul>
-                        <a href="/cyber.html"><li>Cybersecurity</li></a>
-                        <a href="/ict.html"><li>ICT Solutions</li></a>
-                        <a href="/telecom.html"><li>Telecommunications</li></a>
-                        <a href="/power.html"><li>Power & Renewable Energy</li></a>
-                        <a href="/carriers.html"><li>Carriers</li></a>
+                        <li><a href="cyber.html">Cybersecurity</a></li>
+                        <li><a href="ict.html">ICT Solutions</a></li>
+                        <li><a href="telecom.html">Telecommunications</a></li>
+                        <li><a href="power.html">Power & Renewable Energy</a></li>
+                        <li><a href="carrier.html">Carriers</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
                     <h5>Resources</h5>
                     <ul>
-                        <a href="/faq.html"><li>FAQs</li></a>
-                        <a href="/careers.html"><li>Careers</li></a>
-                        <a href="/quality.html"><li>Quality & Certificates</li></a>
-                        <a href="/privacy.html"><li>Privacy Policy</li></a>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="quality.html">Quality & Certificates</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
@@ -249,7 +379,7 @@
             updateNavbar();
             window.addEventListener('scroll', updateNavbar);
 
-            // Case Study Data - Matches exactly the layout from images
+            // Case Study Data
             const caseStudyData = {
                 1: {
                     title: "FIFA WORLD CUP QATAR 2022",
@@ -343,26 +473,21 @@
                 }
             };
 
-            // Get ID from URL
             const urlParams = new URLSearchParams(window.location.search);
             const caseId = urlParams.get('id');
 
-            // Load the corresponding case study
             if (caseId && caseStudyData[caseId]) {
                 const cs = caseStudyData[caseId];
                 
-                // Update hero section
                 document.getElementById('case-title').textContent = cs.title;
                 document.getElementById('case-subtitle').textContent = cs.subtitle;
                 document.getElementById('case-description').textContent = cs.description;
                 
-                // Update project overview
                 document.getElementById('project-overview').innerHTML = `
                     <h3>Project Overview:</h3>
                     <p>${cs.overview}</p>
                 `;
                 
-                // Update key features
                 const featuresHtml = cs.features.map(feature => `
                     <div class="feature-item">
                         <div class="feature-icon">
@@ -374,7 +499,6 @@
                 `).join('');
                 document.getElementById('key-features').innerHTML = featuresHtml;
                 
-                // Update key outcomes
                 const outcomesHtml = cs.outcomes.map(outcome => `
                     <div class="outcome-item">
                         <i class="fa-solid fa-check-circle"></i>
@@ -388,7 +512,6 @@
                     </div>
                 `;
                 
-                // Update testimonial
                 document.getElementById('testimonial').innerHTML = `
                     <i class="fa-solid fa-quote-left"></i>
                     <p>${cs.testimonial}</p>
@@ -397,17 +520,15 @@
                     </div>
                 `;
                 
-                // Update page title
                 document.title = `${cs.title} | Bin Omran Case Study`;
             } else {
-                // Handle invalid ID
                 document.querySelector('.case-study-content').innerHTML = `
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-10 mx-auto text-center py-5">
                                 <h2>Case Study not found</h2>
                                 <p class="mt-3">The case study you're looking for doesn't exist or has been moved.</p>
-                                <a href="/insights.html" class="primary-btn mt-3 d-inline-flex">Return to Insights</a>
+                                <a href="insights.html" class="primary-btn mt-3 d-inline-flex">Return to Insights</a>
                             </div>
                         </div>
                     </div>
