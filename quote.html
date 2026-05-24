@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get a Quote</title>
+    <title>Get a Quote | Bin Omran</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -66,7 +66,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-xl-8 col-lg-9 text-center">
                     <p class="hero-label">Request a Quote</p>
-                    <h1>Submit your project details and we’ll respond with a tailored proposal.</h1>
+                    <h1>Submit your project details and we'll respond with a tailored proposal.</h1>
                 </div>
             </div>
         </div>
@@ -81,54 +81,59 @@
             <div class="row g-4 align-items-start">
                 <div class="col-lg-7">
                     <div class="quote-form-card">
-                        <form>
+                        <form id="quoteForm">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="form-label">Full Name*</label>
-                                    <input type="text" class="form-control" placeholder="Full Name">
+                                    <label class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="fullName" placeholder="Full Name">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Email Address*</label>
-                                    <input type="email" class="form-control" placeholder="Email Address">
+                                    <label class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="emailAddress" placeholder="Email Address">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Company Name*</label>
-                                    <input type="text" class="form-control" placeholder="Company Name">
+                                    <label class="form-label">Company Name *</label>
+                                    <input type="text" class="form-control" id="companyName" placeholder="Company Name">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Phone Number*</label>
-                                    <input type="tel" class="form-control" placeholder="Phone Number">
+                                    <label class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number"
+                                           onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                           oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label">Select Service/Solution*</label>
-                                    <select class="form-control">
-                                        <option selected disabled>Select Service/Solution</option>
-                                        <option>Cybersecurity</option>
-                                        <option>ICT Solutions</option>
-                                        <option>Telecom Infrastructure</option>
-                                        <option>Power & Renewable Energy</option>
+                                    <label class="form-label">Select Service/Solution *</label>
+                                    <select class="form-control" id="serviceSelect">
+                                        <option value="" selected disabled>Select Service/Solution</option>
+                                        <option value="Cybersecurity">Cybersecurity & Digital Transformation</option>
+                                        <option value="ICT Solutions">ICT Solutions</option>
+                                        <option value="Telecom Infrastructure">Telecom Infrastructure</option>
+                                        <option value="Power & Renewable Energy">Power & Renewable Energy</option>
+                                        <option value="Carrier & Telecommunications">Carrier & Telecommunications</option>
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label">Project/Requirement title*</label>
-                                    <input type="text" class="form-control" placeholder="Project/Requirement title">
+                                    <label class="form-label">Project/Requirement Title *</label>
+                                    <input type="text" class="form-control" id="projectTitle" placeholder="Project/Requirement title">
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label">Project/Requirement Details*</label>
-                                    <textarea class="form-control" rows="5" placeholder="Project/Requirement Details"></textarea>
+                                    <label class="form-label">Project/Requirement Details *</label>
+                                    <textarea class="form-control" id="projectDetails" rows="5" placeholder="Please describe your project requirements in detail..."></textarea>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label">Upload Documents (Optional)</label>
-                                    <div class="upload-box">
+                                    <div class="upload-box" id="uploadBox">
                                         <i class="fa-solid fa-cloud-arrow-up"></i>
                                         <p>Drag & Drop files here or browse</p>
-                                        <span>PDF, DOC, PPT, images</span>
+                                        <span>PDF, DOC, PPT, images (Max 10MB)</span>
+                                        <input type="file" id="fileUpload" style="display: none;" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png">
                                     </div>
+                                    <div id="fileNameDisplay" style="font-size: 12px; color: #0f5dff; margin-top: 8px; display: none;"></div>
                                 </div>
                                 <div class="col-12">
                                     <div class="checkbox-group">
-                                        <input type="checkbox" id="privacy" />
-                                        <label for="privacy">I agree to the Privacy Policy and Terms &amp; Conditions</label>
+                                        <input type="checkbox" id="privacyCheckbox">
+                                        <label for="privacyCheckbox">I agree to the Privacy Policy and Terms &amp; Conditions *</label>
                                     </div>
                                 </div>
                                 <div class="col-12 text-start mt-3">
@@ -174,16 +179,17 @@
                         <div class="quote-help">
                             <h6>Need Help?</h6>
                             <p>If you prefer, you can contact us directly.</p>
-                            <p><i class="fas fa-phone"></i><a href="tel:+97444833354">      +974 4483 3354</a></p>
-                            <p><i class="fas fa-envelope"></i><a href="mailto:inquiries@binomran.com">       inquiries@binomran.com</a></p>
-                            <p><i class="fas fa-clock"></i>     Sun - Thu: 9:00 AM - 5:00 PM</p>
+                            <p><i class="fas fa-phone"></i> <a href="tel:+97444833354">+974 4483 3354</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:inquiries@binomran.com">inquiries@binomran.com</a></p>
+                            <p><i class="fas fa-clock"></i> Sun - Thu: 9:00 AM - 5:00 PM</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-     <section class="why-section">
+
+    <section class="why-section">
         <div class="container">
             <div class="section-header text-center mb-5">
                 <span>WHY WORK WITH BIN OMRAN?</span>
@@ -231,29 +237,29 @@
                 <div class="col-lg-2">
                     <h5>Quick Links</h5>
                     <ul>
-                        <a href="/index.html"><li>Home</li></a>
-                        <a href="/about.html"><li>About us</li></a>
-                        <a href="/projects.html"><li>Projects</li></a>
-                        <a href="/insights.html"><li>News</li></a>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about.html">About us</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/insights.html">News</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
-                    <a href="/services.html"><h5>Services</h5></a>
+                    <h5>Services</h5>
                     <ul>
-                        <a href="/cyber.html"><li>Cybersecurity</li></a>
-                        <a href="/ict.html"><li>ICT Solutions</li></a>
-                        <a href="/telecom.html"><li>Telecommunications</li></a>
-                        <a href="/power.html"><li>Power & Renewable Energy</li></a>
-                        <a href="/carriers.html"><li>Carriers</li></a>
+                        <li><a href="/cyber.html">Cybersecurity</a></li>
+                        <li><a href="/ict.html">ICT Solutions</a></li>
+                        <li><a href="/telecom.html">Telecommunications</a></li>
+                        <li><a href="/power.html">Power & Renewable Energy</a></li>
+                        <li><a href="/carrier.html">Carriers</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
                     <h5>Resources</h5>
                     <ul>
-                        <a href="/faq.html"><li>FAQs</li></a>
-                        <a href="/careers.html"><li>Careers</li></a>
-                        <a href="/quality.html"><li>Quality & Certificates</li></a>
-                        <a href="/privacy.html"><li>Privacy Policy</li></a>
+                        <li><a href="/faq.html">FAQs</a></li>
+                        <li><a href="/careers.html">Careers</a></li>
+                        <li><a href="/quality.html">Quality & Certificates</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
@@ -268,8 +274,13 @@
             </div>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+    
+    <script>  
+    
+        // PAGE LOAD ANIMATIONS & NAVBAR SCROLL EFFECT
+      
         document.addEventListener('DOMContentLoaded', function () {
             const navbar = document.querySelector('.custom-navbar');
             const animatedElements = document.querySelectorAll('.service-card, .why-card, .project-card, .stat-box, .client-logo, .news-card, .cta-box, .hero-animation, .section-header');
@@ -317,6 +328,218 @@
             updateNavbar();
             window.addEventListener('scroll', updateNavbar);
         });
+
+        // FILE UPLOAD HANDLER
+
+        const uploadBox = document.getElementById('uploadBox');
+        const fileInput = document.getElementById('fileUpload');
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+
+        if (uploadBox) {
+            uploadBox.addEventListener('click', function() {
+                fileInput.click();
+            });
+
+            uploadBox.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadBox.style.borderColor = '#0f5dff';
+                uploadBox.style.background = 'rgba(15, 93, 255, 0.1)';
+            });
+
+            uploadBox.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                uploadBox.style.borderColor = '#0f5dff';
+                uploadBox.style.background = 'rgba(15, 93, 255, 0.05)';
+            });
+
+            uploadBox.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadBox.style.borderColor = '#0f5dff';
+                uploadBox.style.background = 'rgba(15, 93, 255, 0.05)';
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    fileInput.files = files;
+                    if (files[0]) {
+                        fileNameDisplay.textContent = `Selected file: ${files[0].name}`;
+                        fileNameDisplay.style.display = 'block';
+                    }
+                }
+            });
+
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    fileNameDisplay.textContent = `Selected file: ${this.files[0].name}`;
+                    fileNameDisplay.style.display = 'block';
+                } else {
+                    fileNameDisplay.style.display = 'none';
+                }
+            });
+        }
+        // QUOTE FORM VALIDATION WITH CONSOLE LOGGING
+    
+        const quoteForm = document.getElementById('quoteForm');
+        
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form fields
+                const name = document.getElementById('fullName');
+                const email = document.getElementById('emailAddress');
+                const company = document.getElementById('companyName');
+                const phone = document.getElementById('phoneNumber');
+                const service = document.getElementById('serviceSelect');
+                const projectTitle = document.getElementById('projectTitle');
+                const projectDetails = document.getElementById('projectDetails');
+                const privacyCheckbox = document.getElementById('privacyCheckbox');
+                const fileUpload = document.getElementById('fileUpload');
+                
+                let isValid = true;
+                let errorMessage = '';
+                
+                // Reset borders
+                const fields = [name, email, company, phone, service, projectTitle, projectDetails];
+                fields.forEach(field => {
+                    if (field) field.style.borderColor = '#c9dcff';
+                });
+                
+                // Validate Full Name
+                if (!name.value.trim()) {
+                    isValid = false;
+                    errorMessage += '• Full Name is required\n';
+                    name.style.borderColor = '#e74c3c';
+                }
+                
+                // Validate Email Address
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email.value.trim() || !emailRegex.test(email.value)) {
+                    isValid = false;
+                    errorMessage += '• Valid Email Address is required\n';
+                    email.style.borderColor = '#e74c3c';
+                }
+                
+                // Validate Company Name
+                if (!company.value.trim()) {
+                    isValid = false;
+                    errorMessage += '• Company Name is required\n';
+                    company.style.borderColor = '#e74c3c';
+                }
+                
+                // Validate Phone Number - Strictly numbers only
+                const phoneValue = phone.value.trim();
+                if (!phoneValue) {
+                    isValid = false;
+                    errorMessage += '• Phone Number is required\n';
+                    phone.style.borderColor = '#e74c3c';
+                } else if (!/^[0-9]+$/.test(phoneValue)) {
+                    isValid = false;
+                    errorMessage += '• Phone Number must contain only numbers (0-9)\n';
+                    phone.style.borderColor = '#e74c3c';
+                } else if (phoneValue.length < 8) {
+                    isValid = false;
+                    errorMessage += '• Phone Number must be at least 8 digits\n';
+                    phone.style.borderColor = '#e74c3c';
+                }
+                
+                // Validate Service Selection
+                if (!service.value || service.selectedIndex === 0) {
+                    isValid = false;
+                    errorMessage += '• Please select a Service/Solution\n';
+                    service.style.borderColor = '#e74c3c';
+                }
+                
+                // Validate Project Title
+                if (!projectTitle.value.trim()) {
+                    isValid = false;
+                    errorMessage += '• Project/Requirement Title is required\n';
+                    projectTitle.style.borderColor = '#e74c3c';
+                }
+                
+                // Validate Project Details
+                if (!projectDetails.value.trim()) {
+                    isValid = false;
+                    errorMessage += '• Project/Requirement Details are required\n';
+                    projectDetails.style.borderColor = '#e74c3c';
+                }
+                
+                // Validate Privacy Policy
+                if (!privacyCheckbox.checked) {
+                    isValid = false;
+                    errorMessage += '• You must agree to the Privacy Policy and Terms & Conditions\n';
+                    privacyCheckbox.style.outline = '1px solid #e74c3c';
+                } else {
+                    privacyCheckbox.style.outline = 'none';
+                }
+                
+                if (isValid) {
+                    // Collect form data for demonstration
+                    const formData = {
+                        fullName: name.value,
+                        emailAddress: email.value,
+                        companyName: company.value,
+                        phoneNumber: phone.value,
+                        serviceType: service.value,
+                        projectTitle: projectTitle.value,
+                        projectDetails: projectDetails.value,
+                        fileAttached: fileUpload.files.length > 0 ? fileUpload.files[0].name : 'No file uploaded',
+                        submittedAt: new Date().toISOString(),
+                        formType: 'Quote Request'
+                    };
+                    
+                    // Log to console (for internship demonstration)
+                    console.log('=========================================');
+                    console.log('QUOTE REQUEST FORM SUBMITTED (Demo Mode)');
+                    console.log('=========================================');
+                    console.log('Full Name:', formData.fullName);
+                    console.log('Email:', formData.emailAddress);
+                    console.log('Company:', formData.companyName);
+                    console.log('Phone:', formData.phoneNumber);
+                    console.log('Service:', formData.serviceType);
+                    console.log('Project Title:', formData.projectTitle);
+                    console.log('Project Details:', formData.projectDetails);
+                    console.log('Attached File:', formData.fileAttached);
+                    console.log('Submitted At:', formData.submittedAt);
+                    console.log('=========================================');
+                    console.log('Phone number validation passed (numbers only)');
+                    console.log('All required fields validated successfully');
+                    console.log('=========================================');
+                    console.log('In production, this quote request would be sent to:');
+                    console.log('   - Company Email: inquiries@binomran.com');
+                    console.log('   - Sales/Quotes Database');
+                    console.log('   - CRM System');
+                    console.log('=========================================');
+                    
+                    // Show success message
+                    alert('Thank you! Your quote request has been submitted successfully.\n\nOur team will review your requirements and get back to you within 24 hours with a customized proposal.\n\n(This is a demo submission. In production, data would be sent to Bin Omran\'s sales team.)');
+                    
+                    // Reset form
+                    quoteForm.reset();
+                    fileNameDisplay.style.display = 'none';
+                    
+                } else {
+                    alert('Please fix the following errors:\n\n' + errorMessage);
+                }
+            });
+            
+            // Remove error border on input (real-time)
+            const allInputs = quoteForm.querySelectorAll('input, textarea, select');
+            allInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    this.style.borderColor = '#c9dcff';
+                });
+                input.addEventListener('change', function() {
+                    this.style.borderColor = '#c9dcff';
+                });
+            });
+            
+            // Privacy checkbox error removal
+            const privacyCheck = document.getElementById('privacyCheckbox');
+            if (privacyCheck) {
+                privacyCheck.addEventListener('change', function() {
+                    this.style.outline = 'none';
+                });
+            }
+        }
     </script>
 </body>
 </html>
