@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Contact Us | Bin Omran</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,19 +13,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/index.html">
                 <img src="assets/images/logo.png" alt="Bin Omran logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
@@ -33,9 +36,11 @@
                         <a class="nav-link" href="/index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/services.html" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <a class="nav-link dropdown-toggle" href="/services.html" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="/cyber.html">Cybersecurity & Digital Transformation</a></li>
+                            <li><a class="dropdown-item" href="/cyber.html">Cybersecurity & Digital Transformation</a>
+                            </li>
                             <li><a class="dropdown-item" href="/ict.html">ICT Solutions</a></li>
                             <li><a class="dropdown-item" href="/telecom.html">Telecom Infrastructure</a></li>
                             <li><a class="dropdown-item" href="/power.html">Power & Renewable Energy</a></li>
@@ -67,7 +72,8 @@
                 <div class="col-xl-8 col-lg-9 text-center">
                     <p class="hero-label">Contact Us</p>
                     <h1>Get In Touch With Our Team</h1>
-                    <p class="hero-text">We are here to help you with your next telecommunications, ICT, cybersecurity or energy infrastructure project.</p>
+                    <p class="hero-text">We are here to help you with your next telecommunications, ICT, cybersecurity
+                        or energy infrastructure project.</p>
                 </div>
             </div>
         </div>
@@ -77,31 +83,34 @@
         <div class="container">
             <div class="section-header text-center mb-5">
                 <span>GET IN TOUCH</span>
-                <p class="section-title">We would love to hear from you. Please fill out the form and our team will get back to you shortly.</p>
+                <p class="section-title">We would love to hear from you. Please fill out the form and our team will get
+                    back to you shortly.</p>
             </div>
 
             <div class="contact-form-card mx-auto mb-5">
-                <form>
+                <form id="contactForm">
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label class="form-label">Full Name*</label>
-                            <input type="text" class="form-control" placeholder="Full Name">
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Full Name">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Email Address*</label>
-                            <input type="email" class="form-control" placeholder="Email Address">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="emailAddress" placeholder="Email Address">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Company Name*</label>
-                            <input type="text" class="form-control" placeholder="Company Name">
+                            <label class="form-label">Company Name *</label>
+                            <input type="text" class="form-control" id="companyName" placeholder="Company Name">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Phone Number*</label>
-                            <input type="tel" class="form-control" placeholder="Phone Number">
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number" 
+                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         </div>
                         <div class="col-12">
-                            <label class="form-label">Message</label>
-                            <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+                            <label class="form-label">Message *</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Message"></textarea>
                         </div>
                     </div>
                     <div class="text-center mt-4">
@@ -145,7 +154,9 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="contact-panel contact-map-card">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.7455557304636!2d51.52358497558028!3d25.27994488385902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c326f77d0b6f%3A0xeb74cc4a5701e7e4!2sSalam%20Tower%2C%20Doha%2C%20Qatar!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.7455557304636!2d51.52358497558028!3d25.27994488385902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c326f77d0b6f%3A0xeb74cc4a5701e7e4!2sSalam%20Tower%2C%20Doha%2C%20Qatar!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -160,35 +171,36 @@
                     <div class="social-icons">
                         <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="https://www.linkedin.com/company/bin-omran-trading-and-telecommunications"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/company/bin-omran-trading-and-telecommunications"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2">
                     <h5>Quick Links</h5>
                     <ul>
-                        <a href="/index.html"><li>Home</li></a>
-                        <a href="/about.html"><li>About us</li></a>
-                        <a href="/projects.html"><li>Projects</li></a>
-                        <a href="/insights.html"><li>News</li></a>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about.html">About us</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/insights.html">News</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
-                    <a href="/services.html"><h5>Services</h5></a>
+                    <h5>Services</h5>
                     <ul>
-                        <a href="/cyber.html"><li>Cybersecurity</li></a>
-                        <a href="/ict.html"><li>ICT Solutions</li></a>
-                        <a href="/telecom.html"><li>Telecommunications</li></a>
-                        <a href="/power.html"><li>Power & Renewable Energy</li></a>
-                        <a href="/carriers.html"><li>Carriers</li></a>
+                        <li><a href="/cyber.html">Cybersecurity</a></li>
+                        <li><a href="/ict.html">ICT Solutions</a></li>
+                        <li><a href="/telecom.html">Telecommunications</a></li>
+                        <li><a href="/power.html">Power & Renewable Energy</a></li>
+                        <li><a href="/carrier.html">Carriers</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
                     <h5>Resources</h5>
                     <ul>
-                        <a href="/faq.html"><li>FAQs</li></a>
-                        <a href="/careers.html"><li>Careers</li></a>
-                        <a href="/quality.html"><li>Quality & Certificates</li></a>
-                        <a href="/privacy.html"><li>Privacy Policy</li></a>
+                        <li><a href="/faq.html">FAQs</a></li>
+                        <li><a href="/careers.html">Careers</a></li>
+                        <li><a href="/quality.html">Quality & Certificates</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
@@ -203,8 +215,13 @@
             </div>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
+        // ============================================
+        // PAGE LOAD ANIMATIONS & NAVBAR SCROLL EFFECT
+        // ============================================
         document.addEventListener('DOMContentLoaded', function () {
             const navbar = document.querySelector('.custom-navbar');
             const animatedElements = document.querySelectorAll('.service-card, .why-card, .project-card, .stat-box, .client-logo, .news-card, .cta-box, .hero-animation, .section-header');
@@ -252,6 +269,149 @@
             updateNavbar();
             window.addEventListener('scroll', updateNavbar);
         });
+
+        // ============================================
+        // PHONE NUMBER - STRICTLY NUMBERS ONLY
+        // ============================================
+        const phoneInput = document.getElementById('phoneNumber');
+        if (phoneInput) {
+            // Method 1: Block non-numeric key presses
+            phoneInput.addEventListener('keydown', function(e) {
+                const allowedKeys = ['Backspace', 'Tab', 'Delete', 'ArrowLeft', 'ArrowRight', 'Home', 'End'];
+                if (allowedKeys.includes(e.key)) {
+                    return; // Allow these keys
+                }
+                // Allow numbers only
+                if (!/^[0-9]$/.test(e.key)) {
+                    e.preventDefault();
+                }
+            });
+            
+            // Method 2: Sanitize paste events (remove non-numbers)
+            phoneInput.addEventListener('paste', function(e) {
+                e.preventDefault();
+                const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+                const numbersOnly = pastedText.replace(/[^0-9]/g, '');
+                this.value = numbersOnly;
+            });
+        }
+
+        // ============================================
+        // CONTACT FORM VALIDATION WITH CONSOLE LOGGING
+        // ============================================
+        const contactForm = document.getElementById('contactForm');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form fields
+                const name = document.getElementById('fullName');
+                const email = document.getElementById('emailAddress');
+                const company = document.getElementById('companyName');
+                const phone = document.getElementById('phoneNumber');
+                const message = document.getElementById('message');
+                
+                let isValid = true;
+                let errorMessage = '';
+                
+                // Reset borders to default
+                const fields = [name, email, company, phone, message];
+                fields.forEach(field => {
+                    if (field) field.style.borderColor = '#c9dcff';
+                });
+                
+                // Validate Full Name
+                if (!name.value.trim()) {
+                    isValid = false;
+                    errorMessage += '• Full Name is required\n';
+                    name.style.borderColor = '#e74c3c';
+                }
+                
+                // Validate Email Address
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email.value.trim() || !emailRegex.test(email.value)) {
+                    isValid = false;
+                    errorMessage += '• Valid Email Address is required\n';
+                    email.style.borderColor = '#e74c3c';
+                }
+                
+                // Validate Company Name
+                if (!company.value.trim()) {
+                    isValid = false;
+                    errorMessage += '• Company Name is required\n';
+                    company.style.borderColor = '#e74c3c';
+                }
+                
+                // Validate Phone Number - Strictly numbers only
+                const phoneValue = phone.value.trim();
+                if (!phoneValue) {
+                    isValid = false;
+                    errorMessage += '• Phone Number is required\n';
+                    phone.style.borderColor = '#e74c3c';
+                } else if (!/^[0-9]+$/.test(phoneValue)) {
+                    isValid = false;
+                    errorMessage += '• Phone Number must contain only numbers (0-9)\n';
+                    phone.style.borderColor = '#e74c3c';
+                } else if (phoneValue.length < 8) {
+                    isValid = false;
+                    errorMessage += '• Phone Number must be at least 8 digits\n';
+                    phone.style.borderColor = '#e74c3c';
+                }
+                
+                // Validate Message
+                if (!message.value.trim()) {
+                    isValid = false;
+                    errorMessage += '• Message is required\n';
+                    message.style.borderColor = '#e74c3c';
+                }
+                
+                if (isValid) {
+                    // Collect form data for demonstration purposes
+                    const formData = {
+                        fullName: name.value,
+                        emailAddress: email.value,
+                        companyName: company.value,
+                        phoneNumber: phone.value,
+                        message: message.value,
+                        submittedAt: new Date().toISOString(),
+                        formType: 'Contact Us'
+                    };
+                    
+                    // Log to console (for internship demonstration)
+                    console.log('=========================================');
+                    console.log('📧 CONTACT FORM SUBMITTED (Demo Mode)');
+                    console.log('=========================================');
+                    console.log('Full Name:', formData.fullName);
+                    console.log('Email:', formData.emailAddress);
+                    console.log('Company:', formData.companyName);
+                    console.log('Phone:', formData.phoneNumber);
+                    console.log('Message:', formData.message);
+                    console.log('Submitted At:', formData.submittedAt);
+                    console.log('=========================================');
+                    console.log('✅ Phone number validation passed (numbers only)');
+                    console.log('=========================================');
+                    
+                    // Show success message
+                    alert('✓ Thank you! Your message has been received.\n\nOur team will contact you within 24 hours.\n\n(This is a demo submission. In production, data would be sent to Bin Omran\'s email.)');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                } else {
+                    alert('❌ Please fix the following errors:\n\n' + errorMessage);
+                }
+            });
+            
+            // Remove error border on input (real-time)
+            const allInputs = contactForm.querySelectorAll('input, textarea');
+            allInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    this.style.borderColor = '#c9dcff';
+                });
+            });
+        }
     </script>
 </body>
+
 </html>
